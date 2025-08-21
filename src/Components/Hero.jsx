@@ -1,42 +1,20 @@
-import React, {useState} from "react";
+import dayjs from "dayjs";
 
-function Hero({onSearch}) {
-  const [showInput, setShowInput] = useState(false);
-  const [city, setCity] = useState("");
+function Hero() {
+  
+  const now = dayjs();
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter" && city.trim() !== "") {
-      onSearch(city); //parent will call api
-      setShowInput(false); //close input after search
-      setCity(""); //clear input
-    }
-  };
   return (
-    <div className="flex flex-row items-center gap-16 p-8">
-      {/* Brand */}
-      <h1 className="text-5xl font-bold text-transparent font-heading bg-gradient-to-r from-green-500 via-slate-600 to-white/70 bg-clip-text">
+    <div className="flex flex-row items-center gap-16 p-2 px-4 md:gap-40 lg:px-36 xl:gap-96 xl:ml-10">
+
+      <h1 className="text-lg font-bold text-transparent font-heading md:text-2xl xl:text-4xl md:px-20 md:pt-4 bg-gradient-to-r from-orange-400 via-yellow-400 to-white/70 bg-clip-text">
         NIMBUS
       </h1>
-
-      {/* Search Section */}
-      <div className="relative flex items-center">
-        {showInput ? (
-          <input
-            type="text"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            onKeyDown={handleKeyDown}
-            placeholder="Enter city name..."
-            className="px-3 py-1 text-white border rounded-lg bg-white/10 focus:outline-none border-white/30"
-            autoFocus
-          />
-        ) : (
-          <i
-            className="text-3xl cursor-pointer fa-solid fa-magnifying-glass-location text-white/70"
-            onClick={() => setShowInput(true)}
-          ></i>
-        )}
+      <div className="flex gap-3 px-2 text-xs md:text-sm md:pt-4 md:px-6 xl:text-lg xl:px-94 text-gray-300/90 font-heading">
+        <div>{now.format("dddd")}</div>
+        <div>{now.format("DD MMM, YYYY  h:mm A")}</div>
       </div>
+      
     </div>
   );
 }

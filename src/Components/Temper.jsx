@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import Hero from "./Hero";
-import dayjs from "dayjs";
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
-  const now = dayjs();
+  
 
   const fetchWeather = async (city) => {
     const API_KEY = import.meta.env.VITE_OPENWEATHER_API;
@@ -22,12 +21,9 @@ function App() {
   return (
     <div className="text-white">
       <Hero onSearch={fetchWeather} />
-      <div className="px-8 text-gray-300/90 text-md font-heading ">
-        <div>{now.format("dddd")}</div>
-        <div>{now.format("DD MMM, YYYY  h:mm A")}</div>
-      </div>
+
       {weatherData && (
-        <div className="p-6">
+        <div className="p-8">
           <h2 className="text-2xl font-bold">{weatherData.name}</h2>
           <p>🌡 Temp: {weatherData.main.temp} °C</p>
           <p>💨 Wind: {weatherData.wind.speed} m/s</p>
