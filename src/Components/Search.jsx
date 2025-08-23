@@ -11,14 +11,14 @@ export default function WeatherSearch({ onSearch }) {
   };
 
   return (
-    <div className="flex justify-center w-full mt-5">
+    <div className="flex justify-center w-full mt-2 xl:mt-6">
       <input
         type="text"
         placeholder="Enter city name..."
         value={city}
         onChange={(e) => setCity(e.target.value)}
         onKeyDown={handleKeyDown}
-        className="text-black font-semibold p-2 border border-gray-300 rounded-lg shadow-sm w-80 md:w-[550px] lg:w-[580px] xl:w-[900px] focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-200/90 placeholder:text-black"
+        className="text-black font-semibold p-2 border border-gray-300 rounded-lg shadow-sm w-80 md:w-[520px] lg:w-[570px] xl:w-[670px] focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-200/90 placeholder:text-black"
       />
     </div>
   );
